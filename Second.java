@@ -1,19 +1,34 @@
 package aaa;
 
-public class Second {
+public class Second extends First{
 	
-	//toString方法将数值（int 型）转换为 数值（字符串型） 456-->"456"
+	public Second() {
+		super();//调用父类构造方法 子类调用父类的构造函数
+		//必须位于子类构造函数的第一句；
+		super.function2(); //调用父类成员方法
+	}
+	public void hahha() {
+		//新增方法
+		super.function2(); //新增方法中调用父类成员方法
+	}
 	
-	public static void main(String[] args) {
-		String string=Integer.toString(456);
-		String string2=Integer.toBinaryString(456);
-		String string3=Integer.toOctalString(456);
-		String string4=Integer.toHexString(456);
-		System.out.println("十进制 "+string);
-		System.out.println("八进制 "+string3);
-		System.out.println("二进制 "+string2);
-		System.out.println("十六进制 "+string4);
-		
+	private void function() { //父类中private修饰的方法 无法再子类中调用
+		//所以这是一个新方法
+		System.out.println("我叫张张");
+	}
+	
+	
+@Override
+	public void function2() {
+		System.out.println("dadsdasda");
+		super.function2();
+	}
+public static void main(String[] args) {
+	Second aSecond=new Second();
+	aSecond.hahha();
+	aSecond.function();
+	aSecond.function2();
+	
 }
 
 }
