@@ -1,34 +1,36 @@
 package aaa;
 
-public class Second extends First{
+public  class Second {
+	int a;
+	int b;
 	
-	public Second() {
-		super();//调用父类构造方法 子类调用父类的构造函数
-		//必须位于子类构造函数的第一句；
-		super.function2(); //调用父类成员方法
+	public Second(String string) {
+		System.out.println("this is a 字符串");
+		
 	}
-	public void hahha() {
-		//新增方法
-		super.function2(); //新增方法中调用父类成员方法
+@Override // //重写equal方法和hashcode方法 
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + a;
+		result = prime * result + b;
+		return result;
 	}
-	
-	private void function() { //父类中private修饰的方法 无法再子类中调用
-		//所以这是一个新方法
-		System.out.println("我叫张张");
-	}
-	
-	
-@Override
-	public void function2() {
-		System.out.println("dadsdasda");
-		super.function2();
-	}
-public static void main(String[] args) {
-	Second aSecond=new Second();
-	aSecond.hahha();
-	aSecond.function();
-	aSecond.function2();
-	
-}
 
+	@Override //重写equal方法和hashcode方法  
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Second other = (Second) obj;
+		if (a != other.a)
+			return false;
+		if (b != other.b)
+			return false;
+		return true;
+	}
+	
 }
