@@ -1,15 +1,14 @@
-package aaa;
+package 向上转型向下转型;
 
 public class First {
-	
-	private  void function() {
-		System.out.println("dididiidid");
+	public First() {
+		System.out.println("父类无参构造方法");
+	}
+	protected void function1() {
+		System.out.println("父类无参自定义方法");
+	}
+	public static void function2() {
+		System.out.println("BBBBB");
 	}
 	
-	public void function2() {
-		
-		System.out.println("hahhha");
-	}
-	
-
 }

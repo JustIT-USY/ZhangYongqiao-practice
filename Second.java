@@ -1,36 +1,22 @@
-package aaa;
+package 向上转型向下转型;
 
-public  class Second {
-	int a;
-	int b;
+public class Second extends First {
+	public Second() {
+		super();
+		System.out.println("调用父类构造方法");
+	}
+
+	/*@Override
+	public void function1() {//重写了First中function1方法（更改了修饰权限）
+		System.out.println("哈哈哈哈");
+	}*/
 	
-	public Second(String string) {
-		System.out.println("this is a 字符串");
-		
-	}
-@Override // //重写equal方法和hashcode方法 
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + a;
-		result = prime * result + b;
-		return result;
-	}
-
-	@Override //重写equal方法和hashcode方法  
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Second other = (Second) obj;
-		if (a != other.a)
-			return false;
-		if (b != other.b)
-			return false;
-		return true;
+	public static void main(String[] args) {
+		First aaa= new Second(); //向上转型（隐试转换）
+		aaa.function1();
+		Second aFirst= (Second)aaa; //显式转换
+		aFirst.function1();
+		function2();//调用静态方法
 	}
 	
 }
